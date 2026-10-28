@@ -118,7 +118,7 @@ impl GlobalHotKeyManager {
                     mods,
                     hotkey_id,
                     GetApplicationEventTarget(),
-                    0,
+                    if cfg!(feature = "macos-exclusive") { 1 << 0 } else { 0 },
                     &mut hotkey_ref,
                 );
 

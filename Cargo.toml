@@ -12,6 +12,8 @@ categories = ["gui"]
 rust-version = "1.77"
 
 [features]
+# Opt-in exclusive registration; existing consumers keep cooperative behavior.
+macos-exclusive = []
 serde = ["dep:serde"]
 tracing = ["dep:tracing"]
 

@@ -38,6 +38,15 @@ if let Ok(event) = GlobalHotKeyEvent::receiver().try_recv() {
 }
 ```
 
+## Optional macOS exclusive registration
+
+Enable the `macos-exclusive` Cargo feature to request `kEventHotKeyExclusive`
+for ordinary Carbon hotkeys. Registration then fails if another process has
+already registered the combination, allowing callers to keep their previous
+working binding. The feature is off by default. Windows/Linux behavior and the
+existing registration/event backend are unchanged; media-key event taps are not
+covered by this option.
+
 ## License
 
 Apache-2.0/MIT
